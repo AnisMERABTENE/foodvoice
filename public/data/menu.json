@@ -1,0 +1,322 @@
+{
+  "restaurant": {
+    "name": "FOODVOICE Restaurant",
+    "description": "Cuisine italienne moderne avec assistant vocal",
+    "currency": "€"
+  },
+  "categories": {
+    "entrees": {
+      "name": "Entrées",
+      "icon": "🥗",
+      "description": "Pour commencer en douceur"
+    },
+    "pizzas": {
+      "name": "Pizzas",
+      "icon": "🍕",
+      "description": "Nos pizzas artisanales"
+    },
+    "pates": {
+      "name": "Pâtes",
+      "icon": "🍝",
+      "description": "Pâtes fraîches maison"
+    },
+    "desserts": {
+      "name": "Desserts",
+      "icon": "🍰",
+      "description": "Une touche sucrée"
+    },
+    "boissons": {
+      "name": "Boissons",
+      "icon": "🥤",
+      "description": "Pour accompagner votre repas"
+    }
+  },
+  "menu": {
+    "entrees": [
+      {
+        "id": 1,
+        "name": "Salade César",
+        "price": 12,
+        "image": "/images/salade-cesar.jpg",
+        "description": "Salade romaine fraîche, croûtons dorés, parmesan râpé et notre sauce César maison",
+        "ingredients": ["salade romaine", "croûtons", "parmesan", "sauce césar", "anchois"],
+        "allergens": ["gluten", "poisson", "lait"],
+        "tags": ["frais", "léger"],
+        "vegetarian": false,
+        "vegan": false,
+        "halal": false,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "5 min"
+      },
+      {
+        "id": 2,
+        "name": "Bruschetta Tricolore",
+        "price": 8,
+        "image": "/images/bruschetta.jpg",
+        "description": "Pain italien grillé avec tomates fraîches, mozzarella di bufala et basilic",
+        "ingredients": ["pain italien", "tomates", "mozzarella di bufala", "basilic", "huile d'olive"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["italien", "frais"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": false,
+        "spicy": false,
+        "preparationTime": "5 min"
+      },
+      {
+        "id": 3,
+        "name": "Carpaccio de Bœuf",
+        "price": 16,
+        "image": "/images/carpaccio.jpg",
+        "description": "Fines tranches de bœuf, roquette, parmesan et huile de truffe",
+        "ingredients": ["bœuf", "roquette", "parmesan", "huile de truffe", "citron"],
+        "allergens": ["lait"],
+        "tags": ["premium", "protéine"],
+        "vegetarian": false,
+        "vegan": false,
+        "halal": false,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "3 min"
+      }
+    ],
+    "pizzas": [
+      {
+        "id": 4,
+        "name": "Pizza Margherita",
+        "price": 14,
+        "image": "/images/pizza-margherita.jpg",
+        "description": "La classique ! Sauce tomate, mozzarella fior di latte et basilic frais",
+        "ingredients": ["pâte artisanale", "sauce tomate", "mozzarella", "basilic", "huile d'olive"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["classique", "italien"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "12 min",
+        "cheeseRemovable": true
+      },
+      {
+        "id": 5,
+        "name": "Pizza Végétarienne",
+        "price": 16,
+        "image": "/images/pizza-vege.jpg",
+        "description": "Légumes de saison grillés, courgettes, poivrons, aubergines et mozzarella",
+        "ingredients": ["pâte artisanale", "courgettes", "poivrons", "aubergines", "mozzarella", "herbes de Provence"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["légumes", "sain"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": false,
+        "spicy": false,
+        "preparationTime": "15 min",
+        "cheeseRemovable": true
+      },
+      {
+        "id": 6,
+        "name": "Pizza 4 Fromages",
+        "price": 18,
+        "image": "/images/pizza-4fromages.jpg",
+        "description": "Mozzarella, gorgonzola, parmesan et chèvre pour les amateurs de fromage",
+        "ingredients": ["pâte artisanale", "mozzarella", "gorgonzola", "parmesan", "chèvre"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["fromage", "riche"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": false,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "12 min",
+        "cheeseRemovable": false
+      },
+      {
+        "id": 7,
+        "name": "Pizza Carnivore",
+        "price": 20,
+        "image": "/images/pizza-carnivore.jpg",
+        "description": "Jambon, pepperoni, saucisses italiennes, lardons et mozzarella",
+        "ingredients": ["pâte artisanale", "jambon", "pepperoni", "saucisses", "lardons", "mozzarella"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["viande", "copieux"],
+        "vegetarian": false,
+        "vegan": false,
+        "halal": false,
+        "popular": true,
+        "spicy": true,
+        "preparationTime": "15 min",
+        "cheeseRemovable": true
+      }
+    ],
+    "pates": [
+      {
+        "id": 8,
+        "name": "Spaghetti Carbonara",
+        "price": 15,
+        "image": "/images/carbonara.jpg",
+        "description": "La vraie recette romaine : œufs, pecorino, guanciale et poivre noir",
+        "ingredients": ["spaghetti", "œufs", "pecorino", "guanciale", "poivre noir"],
+        "allergens": ["gluten", "œufs", "lait"],
+        "tags": ["italien", "traditionnel"],
+        "vegetarian": false,
+        "vegan": false,
+        "halal": false,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "10 min"
+      },
+      {
+        "id": 9,
+        "name": "Penne Arrabbiata",
+        "price": 13,
+        "image": "/images/arrabbiata.jpg",
+        "description": "Sauce tomate épicée à l'ail, piment et basilic",
+        "ingredients": ["penne", "tomates", "ail", "piment", "basilic", "huile d'olive"],
+        "allergens": ["gluten"],
+        "tags": ["épicé", "vegan"],
+        "vegetarian": true,
+        "vegan": true,
+        "halal": true,
+        "popular": false,
+        "spicy": true,
+        "preparationTime": "8 min"
+      },
+      {
+        "id": 10,
+        "name": "Tagliatelles aux Champignons",
+        "price": 14,
+        "image": "/images/tagliatelles-champignons.jpg",
+        "description": "Pâtes fraîches, champignons de Paris et cèpes, crème et parmesan",
+        "ingredients": ["tagliatelles", "champignons de Paris", "cèpes", "crème", "parmesan"],
+        "allergens": ["gluten", "lait"],
+        "tags": ["crémeux", "champignons"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "12 min"
+      }
+    ],
+    "desserts": [
+      {
+        "id": 11,
+        "name": "Tiramisu",
+        "price": 7,
+        "image": "/images/tiramisu.jpg",
+        "description": "Le dessert italien par excellence, mascarpone, café et cacao",
+        "ingredients": ["mascarpone", "œufs", "sucre", "biscuits", "café", "cacao"],
+        "allergens": ["œufs", "lait", "gluten"],
+        "tags": ["italien", "café"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "2 min"
+      },
+      {
+        "id": 12,
+        "name": "Panna Cotta",
+        "price": 6,
+        "image": "/images/pannacotta.jpg",
+        "description": "Crème onctueuse à la vanille avec coulis de fruits rouges",
+        "ingredients": ["crème", "sucre", "vanille", "gélatine", "fruits rouges"],
+        "allergens": ["lait"],
+        "tags": ["léger", "fruits"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": false,
+        "spicy": false,
+        "preparationTime": "2 min"
+      },
+      {
+        "id": 13,
+        "name": "Gelato Artisanal",
+        "price": 5,
+        "image": "/images/gelato.jpg",
+        "description": "2 boules au choix : vanille, chocolat, pistache, ou fruits rouges",
+        "ingredients": ["lait", "crème", "sucre", "arômes naturels"],
+        "allergens": ["lait"],
+        "tags": ["frais", "artisanal"],
+        "vegetarian": true,
+        "vegan": false,
+        "halal": true,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "1 min"
+      }
+    ],
+    "boissons": [
+      {
+        "id": 14,
+        "name": "Coca Cola",
+        "price": 3,
+        "image": "/images/coca.jpg",
+        "description": "33cl bien fraîche",
+        "ingredients": ["eau gazéifiée", "sucre", "arômes"],
+        "allergens": [],
+        "tags": ["gazeux", "sucré"],
+        "vegetarian": true,
+        "vegan": true,
+        "halal": true,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "1 min"
+      },
+      {
+        "id": 15,
+        "name": "Eau Minérale",
+        "price": 2,
+        "image": "/images/eau.jpg",
+        "description": "50cl d'eau pure des Alpes",
+        "ingredients": ["eau minérale"],
+        "allergens": [],
+        "tags": ["nature", "sain"],
+        "vegetarian": true,
+        "vegan": true,
+        "halal": true,
+        "popular": false,
+        "spicy": false,
+        "preparationTime": "1 min"
+      },
+      {
+        "id": 16,
+        "name": "Vin Rouge",
+        "price": 5,
+        "image": "/images/vin-rouge.jpg",
+        "description": "Verre de 12cl, Côtes du Rhône",
+        "ingredients": ["raisin", "sulfites"],
+        "allergens": ["sulfites"],
+        "tags": ["alcool", "français"],
+        "vegetarian": true,
+        "vegan": true,
+        "halal": false,
+        "popular": true,
+        "spicy": false,
+        "preparationTime": "1 min"
+      },
+      {
+        "id": 17,
+        "name": "Jus d'Orange Pressé",
+        "price": 4,
+        "image": "/images/jus-orange.jpg",
+        "description": "Oranges pressées minute, 100% naturel",
+        "ingredients": ["oranges fraîches"],
+        "allergens": [],
+        "tags": ["frais", "vitamine"],
+        "vegetarian": true,
+        "vegan": true,
+        "halal": true,
+        "popular": false,
+        "spicy": false,
+        "preparationTime": "3 min"
+      }
+    ]
+  }
+}

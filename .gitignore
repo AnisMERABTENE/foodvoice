@@ -1,0 +1,13 @@
+.env.example
+.env.local
+node_modules/
+node_modules/
+.env
+.next/
+dist/
+.cache/
+*.log
+.DS_Store
+
+# TypeScript
+*.tsbuildinfo

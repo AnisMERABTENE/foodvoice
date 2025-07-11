@@ -1,0 +1,361 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ========================================
+   BASE STYLES - Mobile First
+   ======================================== */
+
+@layer base {
+  /* Configuration de base pour tous les appareils */
+  * {
+    @apply touch-manipulation;
+  }
+
+  html {
+    @apply scroll-smooth-mobile;
+    /* Prévenir le zoom sur focus des inputs mobiles */
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+  }
+
+  body {
+    @apply bg-gradient-to-br from-orange-50 to-red-50 min-h-screen;
+    @apply text-gray-900 leading-relaxed;
+    @apply safe-area-top safe-area-bottom;
+    /* Optimisations mobiles */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    /* Éviter les rebonds sur iOS */
+    overscroll-behavior: none;
+  }
+
+  /* Améliorer la lisibilité des boutons sur mobile */
+  button, input, select, textarea {
+    @apply mobile-tap;
+    font-size: 16px; /* Évite le zoom sur iOS */
+  }
+
+  /* Optimiser les liens pour le tactile */
+  a {
+    @apply mobile-tap;
+    min-height: 44px; /* Taille minimum recommandée */
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* ========================================
+   COMPONENTS - Composants réutilisables
+   ======================================== */
+
+@layer components {
+  /* Card de plat optimisée mobile */
+  .food-card {
+    @apply bg-white rounded-2xl shadow-card overflow-hidden;
+    @apply hover:shadow-card-hover transition-all duration-300;
+    @apply transform hover:scale-[1.02];
+    /* Optimisations mobiles */
+    @apply mobile-tap;
+    min-height: 320px;
+  }
+
+  .food-card:active {
+    @apply scale-[0.98];
+  }
+
+  /* Bouton vocal principal */
+  .voice-button {
+    @apply w-16 h-16 xs:w-20 xs:h-20;
+    @apply rounded-full shadow-voice-button;
+    @apply flex items-center justify-center;
+    @apply text-2xl xs:text-3xl;
+    @apply transition-all duration-300;
+    @apply mobile-tap;
+    /* Taille tactile minimum */
+    min-width: 64px;
+    min-height: 64px;
+  }
+
+  .voice-button:active {
+    @apply scale-95;
+  }
+
+  .voice-button.recording {
+    @apply bg-red-500 hover:bg-red-600;
+    @apply animate-pulse scale-110;
+    @apply shadow-voice-active;
+  }
+
+  .voice-button.processing {
+    @apply bg-yellow-500;
+    @apply animate-spin;
+  }
+
+  .voice-button.ready {
+    @apply bg-primary-500 hover:bg-primary-600;
+    @apply hover:scale-110;
+  }
+
+  /* Navigation sticky mobile */
+  .category-nav {
+    @apply bg-white border-b border-gray-200;
+    @apply sticky top-0 z-50;
+    @apply safe-area-top;
+    /* Support du notch sur iOS */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  }
+
+  .category-button {
+    @apply flex items-center space-x-2;
+    @apply px-3 py-2 xs:px-4 xs:py-2;
+    @apply rounded-full whitespace-nowrap;
+    @apply transition-all duration-200;
+    @apply mobile-tap;
+    @apply text-sm xs:text-base;
+    /* Taille minimum pour le tactile */
+    min-height: 44px;
+  }
+
+  .category-button.active {
+    @apply bg-primary-500 text-white shadow-lg;
+    @apply transform scale-105;
+  }
+
+  .category-button.inactive {
+    @apply bg-gray-100 text-gray-700;
+    @apply hover:bg-gray-200;
+  }
+
+  /* Filtres rapides */
+  .filter-button {
+    @apply flex items-center space-x-1;
+    @apply px-3 py-1 xs:px-3 xs:py-2;
+    @apply rounded-full text-sm;
+    @apply whitespace-nowrap transition-all;
+    @apply mobile-tap;
+    min-height: 40px;
+  }
+
+  .filter-button.active {
+    @apply bg-success-500 text-white shadow-md;
+  }
+
+  .filter-button.inactive {
+    @apply bg-white text-gray-700;
+    @apply hover:bg-gray-100;
+  }
+
+  /* Zone de conversation */
+  .chat-bubble {
+    @apply rounded-lg p-3 xs:p-4;
+    @apply leading-relaxed;
+    animation: slide-up 0.3s ease-out;
+  }
+
+  .chat-bubble.assistant {
+    @apply bg-secondary-50 text-secondary-700;
+    @apply border-l-4 border-secondary-500;
+  }
+
+  .chat-bubble.user {
+    @apply bg-success-50 text-success-700;
+    @apply border-l-4 border-success-500;
+  }
+
+  .chat-bubble.error {
+    @apply bg-red-50 text-red-700;
+    @apply border-l-4 border-red-500;
+  }
+
+  /* Badges sur les cartes */
+  .food-badge {
+    @apply px-2 py-1 rounded-full text-xs font-medium;
+    @apply backdrop-blur-sm;
+  }
+
+  .food-badge.popular {
+    @apply bg-yellow-400 bg-opacity-90 text-yellow-900;
+  }
+
+  .food-badge.spicy {
+    @apply bg-red-400 bg-opacity-90 text-red-900;
+  }
+
+  .food-badge.vegetarian {
+    @apply bg-success-400 bg-opacity-90 text-success-900;
+  }
+
+  .food-badge.vegan {
+    @apply bg-success-500 bg-opacity-90 text-success-900;
+  }
+
+  /* Grille responsive des plats */
+  .food-grid {
+    @apply grid gap-4 xs:gap-6;
+    @apply grid-cols-1 xs:grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+    /* Colonnes adaptatives selon la largeur */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+
+  /* Barre de niveau audio */
+  .audio-bar {
+    @apply w-1 bg-white rounded-full;
+    @apply transition-all duration-100;
+    transform-origin: bottom;
+  }
+
+  /* Raccourcis rapides */
+  .quick-action {
+    @apply bg-white text-gray-700;
+    @apply px-3 py-1 xs:px-4 xs:py-2;
+    @apply rounded-full text-xs xs:text-sm;
+    @apply shadow-md hover:shadow-lg;
+    @apply transition-all duration-200;
+    @apply mobile-tap;
+    min-height: 36px;
+  }
+
+  .quick-action:active {
+    @apply scale-95;
+  }
+}
+
+/* ========================================
+   UTILITIES - Classes utilitaires
+   ======================================== */
+
+@layer utilities {
+  /* Spacing sécurisé pour les encoches */
+  .safe-top {
+    padding-top: max(1rem, env(safe-area-inset-top));
+  }
+
+  .safe-bottom {
+    padding-bottom: max(1rem, env(safe-area-inset-bottom));
+  }
+
+  /* Zone tactile minimum */
+  .touch-target {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Débordement de scroll avec momentum sur iOS */
+  .scroll-momentum {
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
+  }
+
+  /* Centrage parfait */
+  .center-absolute {
+    @apply absolute top-1/2 left-1/2;
+    transform: translate(-50%, -50%);
+  }
+
+  /* Transition standard */
+  .transition-smooth {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Gradient foodvoice */
+  .gradient-foodvoice {
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 50%, #dc2626 100%);
+  }
+
+  /* Glassmorphism pour les overlays */
+  .glass {
+    backdrop-filter: blur(16px) saturate(180%);
+    -webkit-backdrop-filter: blur(16px) saturate(180%);
+    background-color: rgba(255, 255, 255, 0.75);
+    border: 1px solid rgba(209, 213, 219, 0.3);
+  }
+
+  /* Animation d'apparition */
+  .animate-fade-in-up {
+    animation: fade-in-up 0.6s ease-out;
+  }
+
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(2rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Masquer le scrollbar mais garder la fonctionnalité */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Focus visible uniquement au clavier */
+  .focus-keyboard:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  .focus-keyboard:focus-visible {
+    @apply ring-2 ring-primary-500 ring-offset-2;
+  }
+}
+
+/* ========================================
+   RESPONSIVE OPTIMIZATIONS
+   ======================================== */
+
+/* Très petits écrans (iPhone SE) */
+@media (max-width: 374px) {
+  .food-grid {
+    @apply gap-3;
+  }
+  
+  .voice-button {
+    @apply w-14 h-14 text-xl;
+  }
+  
+  .category-button {
+    @apply px-2 py-1 text-sm;
+  }
+}
+
+/* Écrans moyens et plus */
+@media (min-width: 768px) {
+  .food-card:hover {
+    transform: translateY(-4px) scale(1.02);
+  }
+}
+
+/* Mode paysage mobile */
+@media (orientation: landscape) and (max-height: 500px) {
+  .voice-button {
+    @apply w-12 h-12 text-lg;
+  }
+  
+  .safe-bottom {
+    padding-bottom: 0.5rem;
+  }
+}
+
+/* Support du dark mode (préparation future) */
+@media (prefers-color-scheme: dark) {
+  /* Classes pour le mode sombre */
+}
+
+/* Optimisations d'impression */
+@media print {
+  .voice-button,
+  .category-nav,
+  .quick-action {
+    display: none !important;
+  }
+}
